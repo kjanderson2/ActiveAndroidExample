@@ -5,19 +5,20 @@ import com.activeandroid.annotation.Table;
 import com.activeandroid.annotation.Column;
 
 /**
+ * The Telephone Model Class.
  * Created by kjanderson2 on 6/5/15.
  */
 @Table(name="Telephone")
 public class Telephone extends Model {
 
     @Column(name = "Number")
-    public String number;
+    private String number;
 
     @Column(name = "Active")
-    public boolean active;
+    private boolean active;
 
     @Column(name = "Type")
-    public String type;
+    private String type;
 
     public Telephone() {
         //Default Constructor

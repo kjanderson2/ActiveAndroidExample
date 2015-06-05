@@ -5,15 +5,16 @@ import com.activeandroid.annotation.Table;
 import com.activeandroid.annotation.Column;
 
 /**
+ * THe Email model class.
  * Created by kjanderson2 on 6/5/15.
  */
 @Table(name="Emails")
 public class Email extends Model{
     @Column(name="Address")
-    public String address;
+    private String address;
 
     @Column(name="Active")
-    public boolean active;
+    private boolean active;
 
 
     public Email(){

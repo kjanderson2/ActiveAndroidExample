@@ -3,22 +3,22 @@ package kjanderson2.activeandroidexample;
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
-import java.util.List;
 
 /**
+ * The person model class which uses Email and Telephone classes
  * Created by kjanderson2 on 6/5/15.
  */
 @Table(name="Contacts")
-public class Person extends Model {
+class Person extends Model {
 
     @Column(name="Identification")
     public long id;
 
     @Column(name="Name")
-    public String name;
+    private String name;
 
     @Column(name="Age")
-    public int age;
+    private int age;
 
     @Column(name="Email1")
     public Email email1;

@@ -3,7 +3,6 @@ package kjanderson2.activeandroidexample;
         import com.activeandroid.query.Select;
         import android.support.v7.app.ActionBarActivity;
         import android.os.Bundle;
-        import android.util.Log;
         import android.view.View;
         import android.widget.CheckBox;
         import android.widget.EditText;
@@ -15,7 +14,6 @@ public class MainActivity extends ActionBarActivity{
     private TextView idView;
     private EditText nameBox, ageBox, email1Box, email2Box, phone1Box, phone2Box;
     private CheckBox email1Checkbox, email2Checkbox, phone1Checkbox, phone2Checkbox;
-    private static final String TAG = "MyActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
