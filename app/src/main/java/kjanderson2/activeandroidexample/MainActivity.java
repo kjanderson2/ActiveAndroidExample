@@ -3,6 +3,7 @@ package kjanderson2.activeandroidexample;
         import com.activeandroid.query.Select;
         import android.support.v7.app.ActionBarActivity;
         import android.os.Bundle;
+        import android.util.Log;
         import android.view.View;
         import android.widget.CheckBox;
         import android.widget.EditText;
@@ -14,6 +15,7 @@ public class MainActivity extends ActionBarActivity{
     private TextView idView;
     private EditText nameBox, ageBox, email1Box, email2Box, phone1Box, phone2Box;
     private CheckBox email1Checkbox, email2Checkbox, phone1Checkbox, phone2Checkbox;
+    private static final String TAG = "MyActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +39,6 @@ public class MainActivity extends ActionBarActivity{
         phone2Checkbox = (CheckBox) findViewById(R.id.phone2_activity_box);
 
 
-
     }
 
     public void newProduct(View view){
@@ -48,27 +49,35 @@ public class MainActivity extends ActionBarActivity{
         if(email1Box.getText() != null) {
             boolean email1Active = email1Checkbox.isChecked();
             Email email1 = new Email(email1Box.getText().toString(), email1Active);
-            person.addEmail(email1);
+            email1.save();
+            person.setEmail1(email1);
+            person.email1.save();
         }
         if(email2Box.getText() != null) {
             boolean email2Active = email2Checkbox.isChecked();
             Email email2 = new Email(email2Box.getText().toString(), email2Active);
-            person.addEmail(email2);
+            email2.save();
+            person.setEmail2(email2);
+            person.email2.save();
         }
         if(phone1Box.getText() != null) {
             boolean phone1Active = phone1Checkbox.isChecked();
             Telephone phone1 = new Telephone(phone1Box.getText().toString(), phone1Active);
-            person.addPhone(phone1);
+            phone1.save();
+            person.setPhone1(phone1);
+            person.phone1.save();
         }
         if(phone2Box.getText() != null) {
             boolean phone2Active = phone2Checkbox.isChecked();
             Telephone phone2 = new Telephone (phone2Box.getText().toString(), phone2Active);
-            person.addPhone(phone2);
+            phone2.save();
+            person.setPhone2(phone2);
+            person.phone2.save();
         }
 
         person.save();
 
-        idView.setText("Record Added");
+        idView.setText("Record " + person.getId().toString() + " Added");
         clearBoxes();
 
     }
@@ -80,7 +89,7 @@ public class MainActivity extends ActionBarActivity{
     public void lookupProduct (View view) {
         Person person = queryPerson(nameBox.getText().toString());
         if(person != null){
-            idView.setText("Match Found");
+            idView.setText("ID = " + person.getId().toString());
             fillBoxes(person);
         } else {
             idView.setText("No Match Found");
@@ -91,10 +100,9 @@ public class MainActivity extends ActionBarActivity{
 
 
         Person person = queryPerson(nameBox.getText().toString());
-
         if(person !=null){
+            idView.setText("Record " + person.getId().toString() +" Deleted");
             person.delete();
-            idView.setText("Record Deleted");
             clearBoxes();
         } else {
             idView.setText("No Match Found");

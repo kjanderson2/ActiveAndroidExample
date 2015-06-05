@@ -7,7 +7,7 @@ import com.activeandroid.annotation.Column;
 /**
  * Created by kjanderson2 on 6/5/15.
  */
-@Table(name="Phone Numbers")
+@Table(name="Telephone")
 public class Telephone extends Model {
 
     @Column(name = "Number")

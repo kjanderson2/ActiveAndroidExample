@@ -11,17 +11,28 @@ import java.util.List;
 @Table(name="Contacts")
 public class Person extends Model {
 
+    @Column(name="Identification")
+    public long id;
+
     @Column(name="Name")
     public String name;
 
     @Column(name="Age")
     public int age;
 
-    @Column(name="Email")
-    public List<Email> emails;
+    @Column(name="Email1")
+    public Email email1;
 
-    @Column(name="Phone")
-    public List<Telephone> phones;
+    @Column(name="Email2")
+    public Email email2;
+
+    @Column(name="Phone1")
+    public Telephone phone1;
+
+    @Column(name="Phone2")
+    public Telephone phone2;
+
+
 
     public Person(){
         //Default Constructor
@@ -48,28 +59,36 @@ public class Person extends Model {
         return this.age;
     }
 
-    public void addEmail(Email email){
-        emails.add(email);
+    public void setEmail1(Email email){
+        this.email1 = email;
+    }
+
+    public void setEmail2(Email email){
+        this.email2 = email;
     }
 
     public Email getEmail1(){
-        return this.emails.get(0);
+        return this.email1;
     }
 
     public Email getEmail2(){
-        return this.emails.get(1);
+        return this.email2;
     }
 
-    public void addPhone(Telephone phone){
-        this.phones.add(phone);
+    public void setPhone1(Telephone phone){
+        this.phone1 = phone;
+    }
+
+    public void setPhone2(Telephone phone){
+        this.phone2 = phone;
     }
 
     public Telephone getPhone1(){
-        return this.phones.get(0);
+        return this.phone1;
     }
 
     public Telephone getPhone2(){
-        return this.phones.get(1);
+        return this.phone2;
     }
 
 
